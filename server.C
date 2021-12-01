@@ -25,26 +25,36 @@ public:
 
 protected:
 	string myResponse(string inputStr);
+
 };
 
 int main(){
 	srand(time(nullptr));
-	MyServer srv(2026,25);
+	MyServer srv(2027,25);
 	srv.run();
 }
 
 string MyServer::myResponse(string inputStr){
-	char pwdLength[99],numberSymbols[99],pwd[99];
+	char pwd[101];
+	int pwdLength, numberSymbols;
 	string response;
-	if(sscanf(inputStr.c_str(),"makepwd[%s ,%s ]",pwdLength,numberSymbols)){
-		response="Password mit der Länge  und einer Alphabetlänge  erstellt!\n";
-		response.insert(24,pwdLength);
-		response.insert(51,numberSymbols);
+	if(sscanf(inputStr.c_str(),"makepwd[%i,%i]",&pwdLength,&numberSymbols)){
+		if(pwdLength < 4){
+			std::cout <<"Mindest Passwordtlänge ist gleich 4!"<<std::endl;
+			response="Mindest Passwordtlänge ist gleich 4!";
+		}else if(pwdLength > 99){
+			std::cout <<"Maximale Passwortlänge überschritten (max. 100)!"<<std::endl;
+			response="Maximale Passwortlänge überschritten (max. 100)!";
+		}else if(numberSymbols <= 0 || numberSymbols >= 63){
+			std::cout <<"Fehler! Anzahl der Symbole muss zwischen 1 und 62 sein!"<<std::endl;
+			response="Fehler! Anzahl der Symbole muss zwischen 1 und 62 sein!";
+		}
 
-	}else if(sscanf(inputStr.c_str(),"pwd[%s ]",pwd)){
-		response="Password: ";
-		response.append(pwd);
-		response.append(" ist richtig/falsch\n");
+	}else if(sscanf(inputStr.c_str(),"pwd[%s]",pwd)){
+
+		std::cout<<pwd;
+		response="Passwort erhalten";
+
 	}else{
 		response="Unknown Command!\n";
 	}
