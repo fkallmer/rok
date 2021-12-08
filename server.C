@@ -18,6 +18,7 @@
 #include <iostream>
 
 #include "SIMPLESOCKET.H"
+#include "TASK1.H"
 
 class MyServer : public TCPserver{
 public:
@@ -38,6 +39,7 @@ string MyServer::myResponse(string inputStr){
 	char pwd[101];
 	int pwdLength, numberSymbols;
 	string response;
+
 	if(sscanf(inputStr.c_str(),"makepwd[%i,%i]",&pwdLength,&numberSymbols)){
 		if(pwdLength < 4){
 			std::cout <<"Mindest Passwordtlänge ist gleich 4!"<<std::endl;
@@ -52,8 +54,10 @@ string MyServer::myResponse(string inputStr){
 
 	}else if(sscanf(inputStr.c_str(),"pwd[%s]",pwd)){
 
-		std::cout<<pwd;
+		std::cout<<"\n"<<pwd<<std::endl;
 		response="Passwort erhalten";
+		TASK1::BlackBoxSafe box(pwdLength,numberSymbols);
+		std::cout<<box.pwd_<<std::endl;
 
 	}else{
 		response="Unknown Command!\n";
@@ -88,4 +92,7 @@ string MyServer::myResponse(string inputStr){
 
 
 }
+
+
+
 
