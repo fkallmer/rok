@@ -2,7 +2,7 @@
  * TASK4.C
  *
  *  Created on: 23.09.2019
- *      Author: aml
+ *      Author: aml 45
  *
  *  Threading examples using POSIX lib (http://en.wikipedia.org/wiki/POSIX_Threads)
  */
