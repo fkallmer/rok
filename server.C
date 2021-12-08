@@ -51,13 +51,12 @@ string MyServer::myResponse(string inputStr){
 			std::cout <<"Fehler! Anzahl der Symbole muss zwischen 1 und 62 sein!"<<std::endl;
 			response="Fehler! Anzahl der Symbole muss zwischen 1 und 62 sein!";
 		}
+		TASK1::BlackBoxSafe box(pwdLength,numberSymbols);
 
 	}else if(sscanf(inputStr.c_str(),"pwd[%s]",pwd)){
 
-		std::cout<<"\n"<<pwd<<std::endl;
-		response="Passwort erhalten";
-		TASK1::BlackBoxSafe box(pwdLength,numberSymbols);
-		std::cout<<box.pwd_<<std::endl;
+			response="Passwort erhalten";
+
 
 	}else{
 		response="Unknown Command!\n";
