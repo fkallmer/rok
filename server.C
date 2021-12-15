@@ -22,23 +22,28 @@
 
 class MyServer : public TCPserver{
 public:
-	MyServer(int portNmb, int maxSizeData) : TCPserver(portNmb,maxSizeData){};
+	MyServer(int portNmb, int maxSizeData) : TCPserver(portNmb,maxSizeData){
+		box=new TASK1::BlackBoxSafe(4,4);
+	};
 
 protected:
 	string myResponse(string inputStr);
+	TASK1::BlackBoxSafe *box;
+
 
 };
 
 int main(){
 	srand(time(nullptr));
-	MyServer srv(2027,25);
+	MyServer srv(2025,25);
 	srv.run();
 }
 
 string MyServer::myResponse(string inputStr){
 	char pwd[101];
-	int pwdLength, numberSymbols;
+	int pwdLength = 4, numberSymbols=4;
 	string response;
+
 
 	if(sscanf(inputStr.c_str(),"makepwd[%i,%i]",&pwdLength,&numberSymbols)){
 		if(pwdLength < 4){
@@ -51,11 +56,12 @@ string MyServer::myResponse(string inputStr){
 			std::cout <<"Fehler! Anzahl der Symbole muss zwischen 1 und 62 sein!"<<std::endl;
 			response="Fehler! Anzahl der Symbole muss zwischen 1 und 62 sein!";
 		}
-		TASK1::BlackBoxSafe box(pwdLength,numberSymbols);
+		delete box;
+		box=new TASK1::BlackBoxSafe(pwdLength,numberSymbols);
 
 	}else if(sscanf(inputStr.c_str(),"pwd[%s]",pwd)){
 
-			response="Passwort erhalten";
+		response=box->input(pwd);
 
 
 	}else{
