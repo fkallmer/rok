@@ -23,7 +23,7 @@
 class MyServer : public TCPserver{
 public:
 	MyServer(int portNmb, int maxSizeData) : TCPserver(portNmb,maxSizeData){
-		box=new TASK1::BlackBoxSafe(4,4);
+		//box=new TASK1::BlackBoxSafe(4,4); Wird das überhaupt gebraucht?
 	};
 
 protected:

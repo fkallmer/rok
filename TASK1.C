@@ -14,15 +14,28 @@
 
 namespace TASK1{
 
+
+
 BlackBoxSafe::BlackBoxSafe(int pwdLength, int symbSetSize): BlackBoxUnsafe(pwdLength, symbSetSize){
 
-
+	if((symbSetSize < 1) || (symbSetSize > SYMBOLS.length()) ){
+			lengthSymbArray_ = SYMBOLS.length();
+		}else{
+			lengthSymbArray_ = symbSetSize;
+		}
+		// extract and save the subset of valid symbols
+		charSymbArray_ = new char [lengthSymbArray_ + 1];
+		strncpy(charSymbArray_, SYMBOLS.c_str(), lengthSymbArray_);
+		// create and save random password
+		pwd_ = this->randomPwd(pwdLength);
 
 		return;
 }
 
 string BlackBoxSafe::input(string strPwd){
+	std::cout<<"input clear: "<<std::endl;
 	strPwd=sha256(strPwd);
+	std::cout<<"input sha: "<<strPwd<<std::endl;
 	if(strPwd.compare(pwd_) == 0){
 		return string("ACCESS ACCEPTED");
 	}
@@ -39,10 +52,13 @@ string BlackBoxSafe::input(string strPwd){
 	 		pwd_ += charSymbArray_[symbolIdx];
 	 	}
 
+
+	 	std::cout<<"pwd: "<<pwd_<<std::endl;
 	 	pwd_=sha256(pwd_);
-	 	std::cout <<pwd_<<std::endl;
+
 	 	return pwd_;
  }
+
 
 
 string BlackBoxUnsafe::getSymbols(){
