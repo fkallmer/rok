@@ -23,7 +23,7 @@
 class MyServer : public TCPserver{
 public:
 	MyServer(int portNmb, int maxSizeData) : TCPserver(portNmb,maxSizeData){
-		//box=new TASK1::BlackBoxSafe(4,4); Wird das überhaupt gebraucht?
+		box=new TASK1::BlackBoxSafe(4,4);
 	};
 
 protected:
@@ -35,7 +35,7 @@ protected:
 
 int main(){
 	srand(time(nullptr));
-	MyServer srv(2025,25);
+	MyServer srv(2026,25);
 	srv.run();
 }
 
