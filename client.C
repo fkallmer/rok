@@ -25,8 +25,9 @@ public:
 
 private:
 	char * charSymbArray_;
-	int    lengthSymbArray_;
+	int lengthSymbArray_;
 	int pwdlength;
+	int versuche=0;
 
 };
 
@@ -44,17 +45,6 @@ int main() {
 	c.makepwd();
 	c.guess(c.getpwdlength());
 
-
-
-	int i=0;
-	bool goOn=1;
-	while(goOn){ // send and receive data
-
-		msg = c.receive(32);
-		cout << "got response:" << msg << endl;
-		sleep(1);
-
-	}
 }
 
 void MyClient::makepwd(){
@@ -99,9 +89,11 @@ void MyClient::guess(int l){
 		msg.insert(4,pwd);
 		msg.insert(strlen(msg.c_str())-1," ");
 		sendData(msg);
+		versuche++;
 		msg=receive(32);
 		std::cout<<"got response: "<<msg<<std::endl;
 		if(msg.compare(response)==0){
+			std::cout<<"Anzahl der Versuche: "<<versuche<<std::endl;
 			break;
 		}
 	}
