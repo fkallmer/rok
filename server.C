@@ -42,7 +42,7 @@ int main(){
 string MyServer::myResponse(string inputStr){
 	char pwd[101];
 	int pwdLength = 4, numberSymbols=4;
-	string response;
+	string response="ok";
 
 
 	if(sscanf(inputStr.c_str(),"makepwd[%i,%i]",&pwdLength,&numberSymbols)){
@@ -58,6 +58,7 @@ string MyServer::myResponse(string inputStr){
 		}
 		delete box;
 		box=new TASK1::BlackBoxSafe(pwdLength,numberSymbols);
+		response="Passwort erstellt!";
 
 	}else if(sscanf(inputStr.c_str(),"pwd[%s]",pwd)){
 
