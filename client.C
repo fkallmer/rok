@@ -100,6 +100,8 @@ void MyClient::guess(int l){
 
 }
 
+
+
 MyClient::~MyClient(){
 	delete [] charSymbArray_;
 }

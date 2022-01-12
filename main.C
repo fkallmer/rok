@@ -14,14 +14,11 @@
 #include <ctime>       /* time */
 
 #include <unistd.h>
+#include <math.h>
 
 #include "SHA256.H"
 #include "TASK1.H"
-#include "TASK2.H"
-#include "TASK3.H"
-#include "TASK4.H"
-#include "TASK5.H"
-#include "TASK6.H"
+
 
 using namespace std;
 using namespace TASK1;
@@ -51,7 +48,31 @@ int main(){
 	//demoTASK1_00();
 	MyBlackBoxSafe b(4,4);
 
-	cout << "Password erraten?: "<<b.input(b.pwd_) << endl;
+//	cout << "Password erraten?: "<<b.input(b.pwd_) << endl;
+	string s;
+	char symbo[4] = {'A','B','C','D'};
+	char pwd [5];
+	int szs = sizeof(symbo);
+	int szp = sizeof(pwd);
+
+
+	int g = pow(szs,szp);
+	for(int i = 0; i<g;i++)
+	{
+
+		for (int e = 0; e<sizeof(pwd);e++)
+		{
+			int o = pow(szs,szp-1-e);
+			int mod = (i/o)%szs;
+			pwd[e]= symbo[mod];
+
+		}
+		s = string(pwd);
+		cout<<"STRING: (" <<i+1<<") "<<s<<endl;
+
+	}
+
+
 
 
 
