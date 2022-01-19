@@ -154,7 +154,10 @@ void TCPserver::run(){
 
 	while(1)
 	{
+<<<<<<< HEAD
 		memset(dataRecv_,'\0',strlen(dataRecv_));
+=======
+>>>>>>> e1836d9b7814762fe033ec55862870e48a6a8cae
 		read(clintConnt_,dataRecv_, (size_t)maxDataSizeRecv_);
 		output = response(string(dataRecv_));
 		dataSend_ = output.c_str();

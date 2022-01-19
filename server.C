@@ -15,6 +15,7 @@
 #include <arpa/inet.h> // defines in_addr structure
 #include <sys/socket.h> // for socket creation
 #include <netinet/in.h> //contains constants and structures needed for internet domain addresses
+<<<<<<< HEAD
 #include <iostream>
 
 #include "SIMPLESOCKET.H"
@@ -101,3 +102,14 @@ string MyServer::myResponse(string inputStr){
 
 
 
+=======
+
+#include "SIMPLESOCKET.H"
+
+
+int main(){
+	srand(time(nullptr));
+	TCPserver srv(2022,25);
+	srv.run();
+}
+>>>>>>> e1836d9b7814762fe033ec55862870e48a6a8cae

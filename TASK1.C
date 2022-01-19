@@ -15,6 +15,7 @@
 namespace TASK1{
 
 
+<<<<<<< HEAD
 
 BlackBoxSafe::BlackBoxSafe(int pwdLength, int symbSetSize): BlackBoxUnsafe(pwdLength, symbSetSize){
 
@@ -61,6 +62,8 @@ string BlackBoxSafe::input(string strPwd){
 
 
 
+=======
+>>>>>>> e1836d9b7814762fe033ec55862870e48a6a8cae
 string BlackBoxUnsafe::getSymbols(){
 	return string(charSymbArray_);
 };
@@ -80,7 +83,10 @@ BlackBoxUnsafe::BlackBoxUnsafe(int pwdLength, int symbSetSize){
 }
 
 string BlackBoxUnsafe::input(string strPwd){
+<<<<<<< HEAD
 
+=======
+>>>>>>> e1836d9b7814762fe033ec55862870e48a6a8cae
 	if(strPwd.compare(pwd_) == 0){
 		return string("ACCESS ACCEPTED");
 	}

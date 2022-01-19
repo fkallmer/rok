@@ -14,6 +14,7 @@
 #include <ctime>       /* time */
 
 #include <unistd.h>
+<<<<<<< HEAD
 #include <math.h>
 
 #include "SHA256.H"
@@ -75,6 +76,22 @@ int main(){
 
 
 
+=======
+
+#include "SHA256.H"
+#include "TASK1.H"
+#include "TASK2.H"
+#include "TASK3.H"
+#include "TASK4.H"
+#include "TASK5.H"
+#include "TASK6.H"
+
+using namespace std;
+
+
+int main(){
+	srand(time(nullptr));
+>>>>>>> e1836d9b7814762fe033ec55862870e48a6a8cae
 
     return 0;
 }
@@ -82,3 +99,7 @@ int main(){
 
 
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> e1836d9b7814762fe033ec55862870e48a6a8cae
