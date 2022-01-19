@@ -61,6 +61,8 @@ void MyClient::makepwd(){
 	msg.insert(10,numberSymbols);
 	//cout<<"msg: "<<msg<<endl;
 	sendData(msg);
+	msg=receive(32);
+	std::cout<<"got response: "<<msg<<std::endl;
 
 	delete [] charSymbArray_;
 	lengthSymbArray_ = atoi(numberSymbols);
@@ -98,7 +100,7 @@ void MyClient::guess(int l){
 			break;
 		}
 	}
-
+	return;
 }
 
 void MyClient::guess2(int )
@@ -135,6 +137,7 @@ MyClient::~MyClient(){
 int MyClient::getpwdlength(){
 	return pwdlength;
 }
+<<<<<<< HEAD
 
 
 
@@ -173,3 +176,5 @@ int main() {
 
 
 >>>>>>> e1836d9b7814762fe033ec55862870e48a6a8cae
+=======
+>>>>>>> 221859af111a7ca853324407c03fc5a61d5aabc8
