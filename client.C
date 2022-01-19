@@ -100,6 +100,31 @@ void MyClient::guess(int l){
 
 }
 
+void MyClient::guess2(int )
+{
+		char symbo[4] = {'A','B','C','D'};
+		char pwd [5];
+		int szs = sizeof(symbo);
+		int szp = sizeof(pwd);
+
+
+		int g = pow(szs,szp);
+		for(int i = 0; i<g;i++)
+		{
+
+			for (int e = 0; e<sizeof(pwd);e++)
+			{
+				int o = pow(szs,szp-1-e);
+				int mod = (i/o)%szs;
+				pwd[e]= symbo[mod];
+
+			}
+			s = string(pwd);
+			cout<<"STRING: (" <<i+1<<") "<<s<<endl;
+
+		}
+}
+
 
 
 MyClient::~MyClient(){

@@ -60,7 +60,7 @@ int main(){
 	for(int i = 0; i<g;i++)
 	{
 
-		for (int e = 0; e<sizeof(pwd);e++)
+		for (int e = 0; e<szp;e++)
 		{
 			int o = pow(szs,szp-1-e);
 			int mod = (i/o)%szs;
