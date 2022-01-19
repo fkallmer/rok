@@ -1,8 +1,8 @@
 //============================================================================
 // Name        : INF3_Prak.cpp
-// Author      : 
+// Author      : TEAM ROK
 // Version     :
-// Copyright   : Your copyright notice
+// Copyright   :
 // Description : Hello World in C, Ansi-style
 //============================================================================
 
